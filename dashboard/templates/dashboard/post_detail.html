@@ -1,0 +1,24 @@
+{% extends "dashboard/base.html" %}}
+{% block content %}
+<article class="media content-section">
+  <img class="rounded-cirlce article-img" src="{{ object.company.companyprofile.company_image.url }}" >
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'company-posts' object.company.company_name %}">{{ object.company }}</a>
+      <small class="text-muted">{{ object.date_posted | date:"F d, Y"}} - {{ object.job_city }},{{ object.job_state }},{{ object.job_country }}</small>
+      {% if object.posted_by == user %}
+      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'post-update' object.id %}">Update</a>
+       <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'post-delete' object.id %}">Delete</a>
+       <a class="btn btn-danger btn-sm mt-1 mb-1" href="{% url 'job-applicants' object.id %}">View Applicants</a>
+       {% elif object.posted_by != user %}
+          <a class="btn btn-secondary btn-sm mt-1 mb-1" href="{% url 'apply-create' object.id %}">Apply</a>    
+      {% endif %}
+
+
+    </div>
+    <h2 class="article-title" >{{ object.job_title }}</h2>
+    <p class="article-content">{{ object.job_description }}</p>
+    
+  </div>
+</article>
+{% endblock content %}

@@ -1,0 +1,17 @@
+{% extends "dashboard/base.html" %}
+{% load crispy_forms_tags %}
+{% block content %}
+    <div>
+    	<form method="POST" >
+    		{% csrf_token %}
+    		<fieldset class="form-group">Apply for Job</legend>
+                {{ form|crispy }}
+    		<h2>Are you sure you want to apply for the Job? </h2>
+    		</fieldset>
+    		<div class="form-group">
+    			<button class="btn btn-outline-danger" type="submit">Yes, Apply</button>
+    			<a class="btn btn-outline-secondary" href="{% url 'post-detail' view.kwargs.pk %}"> No, Cancel</a>
+    		</div>
+    	</form>
+    </div>
+{% endblock content%}

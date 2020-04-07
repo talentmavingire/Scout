@@ -1,0 +1,18 @@
+{% extends "dashboard/base.html" %}}
+{% block content %}
+<article class="media content-section">
+  <img class="rounded-cirlce article-img" src="{{ object.user_account.profile.image.url }}" >
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="{% url 'company-posts' object.company.company_name %}">{{ object.certificate_degree_name }}</a>
+      <small class="text-muted">{{ object.starting_date | date:"F d, Y"}} , {{ object.completion_date }}</small>
+      {% if object.user_account == user %}
+      <a class="btn btn-secondary btn-sm mt-1 mb-1" href="">Update</a>
+       <a class="btn btn-danger btn-sm mt-1 mb-1" href="">Delete</a>
+    </div>
+    <h2 class="article-title" >{{ object.major }}</h2>
+    <p class="article-content">Percentage - {{ object.percentage }}, GPA -{{ object.cgpa }}</p>
+    
+  </div>
+</article>
+{% endblock content %}
