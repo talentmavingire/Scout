@@ -4,9 +4,9 @@ It also assists employers to identify eligible candidates with the prospect of s
 
 ##Currently the core functionalities include:
 
--user and company profile registration
+- user and company profile registration
 - applied jobs tracking
 - admin panel
--job listing
+- job listing
 - search
--email password reset
+- email password reset
