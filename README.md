@@ -9,4 +9,4 @@ It also assists employers to identify eligible candidates with the prospect of s
 - admin panel
 - job listing
 - search
-- email password reset
+- email password reset 
